@@ -32,8 +32,16 @@
 - name: set wallpaper
   lineinfile:
     path: ~/.config/sway/config
-    line: output * bg ~/pictures/hardcoding/zaki-aby-general-shot.jpg fill
-    
+    regexp: 'output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill'
+    line: 'output * bg ~/pictures/hardcoding/zaki-aby-general-shot.jpg fill'
+    state: present
+
+- name: tune status bar 
+  replace:
+    path: ~/.config/sway/config
+    regexp: '        background #323232'
+    replace: '        background #000000AA'
+
 - name: set terminal emulator
   lineinfile:
     path: ~/.config/sway/config
