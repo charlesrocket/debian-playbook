@@ -1,0 +1,45 @@
+---
+
+- name: ensure sway repo is present
+  include_role:
+    name: apt-repo-meta
+  vars:
+    apt_repo_keys:
+      - "{{ sway_apt_key }}"
+    apt_repo_repositories:
+      - "{{ sway_apt_repo }}"
+
+- name: ensure sway and its packages are installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages: "{{ [sway_package_name] + sway_shared_packages + sway_exclusive_packages }}"
+    
+- name: ensure config directory exists
+  file:
+    path: ~/.config/sway
+    state: directory
+    mode: 0755
+    
+- name: copy sway config file
+  copy:
+    src: /etc/sway/config
+    dest: ~/.config/sway/config
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    mode: '0755'
+
+- name: set wallpaper
+  lineinfile:
+    path: ~/.config/sway/config
+    line: output * bg ~/pictures/hardcoding/zaki-aby-general-shot.jpg fill
+    
+- name: set terminal emulator
+  lineinfile:
+    path: ~/.config/sway/config
+    line: set $term terminator
+    
+- name: set gaps
+  lineinfile:
+    path: ~/.config/sway/config
+    line: gaps inner 6

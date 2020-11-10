@@ -1,0 +1,20 @@
+---
+
+- name: add atom key
+  apt_key:
+    url: 'https://packagecloud.io/AtomEditor/atom/gpgkey'
+    state: present
+  become: True
+
+- name: install atom repo
+  apt_repository:
+    repo: deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main
+    filename: atom
+    state: present
+  become: True
+
+- name: ensure atom is installed
+  apt:
+    name: atom
+    update_cache: yes
+  become: True

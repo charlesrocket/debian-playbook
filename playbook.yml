@@ -1,0 +1,181 @@
+---
+
+###
+### Bootstrap System
+###
+- hosts: all
+  roles:
+    - apt-repo-meta
+  tags:
+    - bootstrap-system
+    - bootstrap-system-apt-repo
+
+- hosts: all
+  vars:
+    apt_packages:
+      - apt-utils
+      - ca-certificates
+      - curl
+      - gnupg
+      - software-properties-common
+  roles:
+    - apt-meta
+  tags:
+    - bootstrap-system
+    - bootstrap-system-apt
+
+
+###
+### Pythonstrap System
+###
+- hosts: all
+  roles:
+    - python-meta
+  tags:
+    - bootstrap-python
+
+
+###
+### Install Role Packages
+###
+
+- hosts: all
+  roles: [tuning]
+  tags: tuning
+
+- hosts: all
+  roles: [atom]
+  tags: atom
+
+- hosts: all
+  roles: [clipmenu]
+  tags: clipmenu
+
+- hosts: all
+  roles: [diff-highlight]
+  tags: diff-highlight
+
+- hosts: all
+  roles: [docker]
+  tags: docker
+
+- hosts: all
+  roles: [docker-compose]
+  tags: docker-compose
+
+- hosts: all
+  roles: [firefox]
+  tags: firefox
+
+- hosts: all
+  roles: [fzf]
+  tags: fzf
+
+- hosts: all
+  roles: [kops]
+  tags: kops
+
+- hosts: all
+  roles: [kubectl]
+  tags: kubectl
+
+- hosts: all
+  roles: [neovim]
+  tags: neovim
+
+- hosts: all
+  roles: [oh-my-zsh]
+  tags: oh-my-zsh
+  
+- hosts: all
+  roles: [sway]
+  tags: sway
+
+- hosts: all
+  roles: [terraform]
+  tags: terraform
+
+- hosts: all
+  roles: [zathura]
+  tags: zathura
+
+
+###
+### Install fonts
+###
+- hosts: all
+  roles: [font-droid-sans-mono]
+  tags:
+    - font-droid-sans-mono
+    - font
+    - fonts
+
+- hosts: all
+  roles: [font-font-awesome]
+  tags:
+    - font-font-awesome
+    - font
+    - fonts
+
+- hosts: all
+  roles: [font-san-francisco]
+  tags:
+    - font-san-francisco
+    - font
+    - fonts
+
+- hosts: all
+  roles: [font-terminus]
+  tags:
+    - font-terminus
+    - font
+    - fonts
+
+###
+### Install themes/icons
+###
+- hosts: all
+  roles: [icon-moka]
+  tags:
+    - icon-moka
+    - icon
+    - icons
+
+- hosts: all
+  roles: [theme-arc]
+  tags:
+    - theme-arc
+    - theme
+    - themes
+
+
+###
+### Install Custom apt Packages
+###
+- hosts: all
+  roles:
+    - apt-meta
+  tags:
+    - apt
+
+
+###
+### Set default applications
+###
+- hosts: all
+  roles:
+    - xdg-mime-meta
+  tags:
+    - xdg
+    - xdg-open
+    - xdg-mime
+
+
+###
+### Manager systemd services
+###
+- hosts: all
+  roles:
+    - systemd-meta
+  tags:
+    - systemd

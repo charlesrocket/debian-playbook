@@ -1,0 +1,22 @@
+---
+
+- name: ensure requirements are installed
+  include_role:
+    name: apt-meta
+  vars:
+    apt_packages: "{{ oh_my_zsh_shared_packages }}"
+
+- name: Clone oh-my-zsh repo
+  git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=/home/{{ ansible_user_id }}/.oh-my-zsh
+
+- name: deploy .zshrc
+  template:
+    src: ../files/.zshrc
+    dest: /home/{{ ansible_user_id }}/.zshrc
+    mode: 0644
+    
+- name: change default shell to zsh
+  user:
+    name: "{{ ansible_user_id }}"
+    shell: /usr/bin/zsh
+  become: True

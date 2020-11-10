@@ -1,0 +1,143 @@
+---
+
+###
+### Custom variables
+###
+debian_dist: buster
+
+
+
+###
+### Debian apt repositories
+###
+apt_repo_repositories:
+  # main
+  - file: debian-main
+    repo: "deb http://deb.debian.org/debian {{ debian_dist }} main contrib non-free"
+  - file: debian-main
+    repo: "deb-src http://deb.debian.org/debian {{ debian_dist }} main contrib non-free"
+  # updates
+  - file: debian-updates
+    repo: "deb http://deb.debian.org/debian {{ debian_dist }}-updates main contrib non-free"
+  - file: debian-updates
+    repo: "deb-src http://deb.debian.org/debian {{ debian_dist }}-updates main contrib non-free"
+  # security
+  - file: debian-security
+    repo: "deb http://security.debian.org {{ debian_dist }}/updates main contrib non-free"
+  - file: debian-security
+    repo: "deb-src http://security.debian.org {{ debian_dist }}/updates main contrib non-free"
+
+
+###
+### Systemd services
+###
+systemd_enabled: []
+
+systemd_disabled: []
+
+
+###
+### System Python versions
+###
+python_3: True
+
+
+###
+### Python pip packages (add your custom packages here)
+###
+pip2_packages: []
+pip3_packages: []
+
+
+###
+### Debian packages (add your custom packages here)
+###
+apt_packages:
+# ---- Base Utils ----
+  - curl
+  - direnv
+  - figlet
+  - gnupg
+  - htop
+  - lolcat
+  - manpages
+  - mc
+  - packer
+  - terminator
+  - traceroute
+  - wget
+
+
+###
+### Select packages to install
+###
+### 'install': Install the package
+### 'remove':  Uninstall the package
+### Any other value will ignore the package (neither install nor uninstall)
+
+atom:                  'install'
+clipmenu:              'install'
+diff_highlight:        'install'
+docker:                'install'
+docker_compose:        'install'
+firefox:               'install'
+font_font_awesome:     'install'
+font_droid_sans_mono:  'install'
+font_san_francisco:    'install'
+font_terminus:         'install'
+fzf:                   'install'
+icon_moka:             'install'
+kops:                  'install'
+kubectl:               'install'
+neovim:                'install'
+oh_my_zsh:             'install'
+sway:                  'install'
+terraform:             'install'
+theme_arc:             'install'
+tuning:                'install'
+zathura:               'install'
+
+
+###
+### Settings for packages
+###
+
+
+# ---- Docker ----
+# 'wheezy', 'jessie', 'stretch' or 'buster'
+docker_repo_dist: "{{ debian_dist }}"
+# 'stable' or 'edge'
+docker_repo_channel: edge
+
+# ---- FZF ----
+# Add sourcing ~/.fzf.bash to your normal shell config?
+fzf_update_rc: True
+# Enable/Disable fuzzy completion (bash & zsh)?
+fzf_completion: False
+# Enable/disable key bindings (CTRL-T, CTRL-R, ALT-C)?
+fzf_key_bindings: False
+
+
+###
+### Set your preferred default applications
+###
+xdg_mime_defaults:
+  - desktop_file: mc.desktop
+    mime_types:
+      - inode/directory
+  - desktop_file: firefox.desktop
+    mime_types:
+      - text/html
+      - text/xml
+      - application/xhtml_xml
+      - application/x-mimearchive
+      - x-scheme-handler/http
+      - x-scheme-handler/https
+  - desktop_file: zathura.desktop
+    mime_types:
+      - application/pdf
+      - application/postscript
+      - application/eps
+      - application/x-eps
+      - image/eps
+      - image/x-eps

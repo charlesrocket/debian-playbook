@@ -1,0 +1,116 @@
+---
+
+###
+### Debian apt repositories
+###
+apt_repo_repositories:
+  # main
+  - file: debian-main
+    repo: deb http://deb.debian.org/debian buster main
+  - file: debian-main
+    repo: deb-src http://deb.debian.org/debian buster main
+  # updates
+  - file: debian-updates
+    repo: deb http://deb.debian.org/debian buster-updates main
+  - file: debian-updates
+    repo: deb-src http://deb.debian.org/debian buster-updates main
+  # security
+  - file: debian-security
+    repo: deb http://security.debian.org buster/updates main
+  - file: debian-security
+    repo: deb-src http://security.debian.org buster/updates main
+
+
+
+###
+### Systemd services
+###
+systemd_enabled: []
+
+systemd_disabled: []
+
+
+###
+### System Python versions
+###
+python_3: True
+
+
+###
+### Python pip packages (add your custom packages here)
+###
+pip2_packages: []
+pip3_packages: []
+
+
+###
+### Debian packages (add your custom packages here)
+###
+apt_packages: []
+
+
+###
+### Select packages to install
+###
+### 'install': Install the package
+### 'remove':  Uninstall the package
+### Any other value will ignore the package (neither install nor uninstall)
+
+atom:                  'ignore'
+clipmenu:              'ignore'
+diff_highlight:        'ignore'
+docker:                'ignore'
+docker_compose:        'ignore'
+firefox:               'ignore'
+font_font_awesome:     'ignore'
+font_droid_sans_mono:  'ignore'
+font_san_francisco:    'ignore'
+font_terminus:         'ignore'
+fzf:                   'ignore'
+icon_moka:             'ignore'
+kops:                  'ignore'
+kubectl:               'ignore'
+neovim:                'ignore'
+oh_my_zsh:             'ignore'
+sway:                  'ignore'
+terraform:             'ignore'
+theme_arc:             'ignore'
+tuning:                'ignore'
+zathura:               'ignore'
+
+
+###
+### Settings for packages
+###
+
+
+# ---- Docker ----
+# 'wheezy', 'jessie', 'stretch' or 'buster'
+docker_repo_dist: stretch
+# 'stable' or 'edge'
+docker_repo_channel: stable
+
+# ---- FZF ----
+# Add sourcing ~/.fzf.bash to your normal shell config?
+fzf_update_rc: True
+# Enable/Disable fuzzy completion (bash & zsh)?
+fzf_completion: False
+# Enable/disable key bindings (CTRL-T, CTRL-R, ALT-C)?
+fzf_key_bindings: False
+
+
+###
+### Set your preferred default applications
+###
+xdg_mime_defaults:
+  - desktop_file: mc.desktop
+    mime_types:
+      - inode/directory
+  - desktop_file: firefox.desktop
+    mime_types:
+      - text/html
+      - text/xml
+      - application/xhtml_xml
+      - application/x-mimearchive
+      - x-scheme-handler/http
+      - x-scheme-handler/https

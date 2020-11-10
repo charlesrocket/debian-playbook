@@ -1,0 +1,16 @@
+---
+
+- name: add custom motd
+  copy:
+    src: 05-hostname
+    dest: /etc/update-motd.d/05-hostname
+    mode: 0755
+    owner: root
+    group: root
+  become: True
+    
+- name: edit Bash prompt
+  lineinfile:
+    dest: /home/{{ ansible_user_id }}/.bashrc
+    line: 'export PS1="\[\e[31m\]x\[\e[m\]:\[\e[34m\]\w\[\e[m\]\[\e[37m\]\\$\[\e[m\] "'
+    owner: "{{ ansible_user_id }}"

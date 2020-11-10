@@ -1,0 +1,27 @@
+---
+
+sway_package_name: sway
+
+sway_apt_repo:
+  file: sway
+  repo: "deb [arch=amd64] https://apt.quantum2.xyz/sway-utils/ {{ debian_dist }} main"
+
+sway_apt_key:
+  url: https://quantum2.xyz/apt.key
+  id: D0E531FE2B129F6E
+
+
+sway_exclusive_packages:
+  - sway-backgrounds
+  - swaybg
+  - swayidle
+  - swaylock
+
+sway_shared_packages:
+  - libjson-c4
+  - libwayland-client0
+  - libwayland-cursor0
+  - libwayland-server0 
+  - libwayland-egl1
+  - libwlroots5
+  - xwayland
