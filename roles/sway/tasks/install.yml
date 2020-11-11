@@ -41,13 +41,18 @@
     path: ~/.config/sway/config
     regexp: '        background #323232'
     replace: '        background #000000AA'
-
-- name: set terminal emulator
-  lineinfile:
-    path: ~/.config/sway/config
-    line: set $term terminator -b
     
 - name: set gaps
   lineinfile:
     path: ~/.config/sway/config
     line: gaps inner 6
+    
+- name: set layout
+  lineinfile:
+    path: ~/.config/sway/config
+    line: "{{ item }}"
+  with_items:
+    - "set $term terminator -b"
+    - "default_border none"
+    - "default_orientation auto"
+    - "gaps inner 6"
