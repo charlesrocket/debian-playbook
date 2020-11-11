@@ -28,6 +28,19 @@
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
     mode: '0755'
+    
+- name: set ui colors
+  lineinfile:
+    path: ~/.config/sway/config
+    line: "{{ item }}"
+    state: present
+    insertbefore: "# Example configuration:"
+  with_items:
+    - "client.focused          #e60000aa #e60000aa #fafafa #cf8787 #c18181"
+    - "client.focused_inactive #333333aa #333333aa #fafafa #cf8787 #5f445f"
+    - "client.unfocused        #333333aa #333333aa #b3b3b3 #ebba89 #5f445f"
+    - "client.urgent           #8d7c7caa #be6060aa #fafafa #900000 #be6060"
+    - "client.placeholder      #000000   #0c0c0c   #fafafa #000000 #0c0c0c"
 
 - name: set wallpaper
   lineinfile:
@@ -36,17 +49,23 @@
     line: 'output * bg ~/pictures/hardcoding/zaki-aby-general-shot.jpg fill'
     state: present
 
-- name: tune status bar (1/2)
+- name: tune status bar (1/3)
   replace:
     path: ~/.config/sway/config
     regexp: '        background #323232'
     replace: '        background #000000AA'
     
-- name: tune status bar (2/2)
+- name: tune status bar (2/3)
   replace:
     path: ~/.config/sway/config
     regexp: '        inactive_workspace #32323200 #32323200 #5c5c5c'
     replace: '        inactive_workspace #2B2B2BAA #2B2B2BAA #e3e3e3'
+    
+- name: tune status bar (2/3)
+  lineinfile:
+    path: ~/.config/sway/config
+    line: "        focused_workspace #cc0000aa #cc0000aa #fafafa"
+    insertafter: "        background #000000AA"
     
 - name: set gaps
   lineinfile:
