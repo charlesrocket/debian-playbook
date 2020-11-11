@@ -36,11 +36,17 @@
     line: 'output * bg ~/pictures/hardcoding/zaki-aby-general-shot.jpg fill'
     state: present
 
-- name: tune status bar 
+- name: tune status bar (1/2)
   replace:
     path: ~/.config/sway/config
     regexp: '        background #323232'
     replace: '        background #000000AA'
+    
+- name: tune status bar (2/2)
+  replace:
+    path: ~/.config/sway/config
+    regexp: '        inactive_workspace #32323200 #32323200 #5c5c5c'
+    replace: '        inactive_workspace #2B2B2BAA #2B2B2BAA #e3e3e3'
     
 - name: set gaps
   lineinfile:
