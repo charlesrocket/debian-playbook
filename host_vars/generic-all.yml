@@ -63,6 +63,7 @@ apt_packages:
   - manpages
   - mc
   - packer
+  - qt5ct
   - terminator
   - thunar
   - traceroute

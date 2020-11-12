@@ -87,6 +87,7 @@ apt_packages:
   - net-tools
   - pinentry-tty
   - pwgen
+  - qt5ct
   - socat
   - thunar
   - tmux
