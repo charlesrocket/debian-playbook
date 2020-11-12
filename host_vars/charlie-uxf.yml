@@ -89,6 +89,7 @@ apt_packages:
   - pwgen
   - qt5ct
   - socat
+  - terminator
   - thunar
   - tmux
   - traceroute
@@ -130,7 +131,6 @@ apt_packages:
   - udisks2-btrfs
   - udisks2-lvm2
 # ---- Window Manager ----
-  - terminator
 # ---- Office / Productivity ----
   - keepassx
 # ---- Video ----
