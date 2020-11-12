@@ -19,10 +19,3 @@
   with_subelements:
     - "{{ xdg_mime_defaults }}"
     - mime_types
-
-- name: additional mc configuration
-  template:
-    src: ../files/mc.desktop
-    dest: /usr/share/applications/mc.desktop
-    mode: 0644
-  become: True

@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name=Midnight Commander
-MimeType=inode/directory
-Exec=xterm -e mc %U
-Type=Application
-Categories=FileManager
