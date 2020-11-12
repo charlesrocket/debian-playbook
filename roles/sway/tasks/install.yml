@@ -29,6 +29,17 @@
     group: "{{ ansible_user_id }}"
     mode: '0755'
     
+- name: set theme
+  lineinfile:
+    path: ~/.config/sway/config
+    line: "{{ item }}"
+    state: present
+    insertbefore: "# Example configuration:"
+  with_items:
+    - "set $gnome-schema org.gnome.desktop.interface"
+    - "exec_always gsettings set $gnome-schema gtk-theme 'Arc-Dark'"
+    - "exec_always gsettings set $gnome-schema icon-theme 'Moka'"
+
 - name: set ui colors
   lineinfile:
     path: ~/.config/sway/config
