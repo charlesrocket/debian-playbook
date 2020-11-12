@@ -86,7 +86,7 @@ zathura:               'ignore'
 
 # ---- Docker ----
 # 'wheezy', 'jessie', 'stretch' or 'buster'
-docker_repo_dist: stretch
+docker_repo_dist: "{{ debian_dist }}"
 # 'stable' or 'edge'
 docker_repo_channel: stable
 
