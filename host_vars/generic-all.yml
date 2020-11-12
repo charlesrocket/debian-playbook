@@ -108,7 +108,7 @@ zathura:               'install'
 # 'wheezy', 'jessie', 'stretch' or 'buster'
 docker_repo_dist: "{{ debian_dist }}"
 # 'stable' or 'edge'
-docker_repo_channel: edge
+docker_repo_channel: stable
 
 # ---- FZF ----
 # Add sourcing ~/.fzf.bash to your normal shell config?
