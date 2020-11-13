@@ -57,6 +57,7 @@ apt_packages:
   - caja
   - curl
   - direnv
+  - exfat-fuse
   - figlet
   - gnupg
   - htop

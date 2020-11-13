@@ -70,6 +70,7 @@ apt_packages:
   - curl
   - direnv
   - dnsutils
+  - exfat-fuse
   - figlet
   - gnupg
   - gnupg-agent
