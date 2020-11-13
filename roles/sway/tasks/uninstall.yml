@@ -6,3 +6,13 @@
   vars:
     apt_state: absent
     apt_packages: "{{ [sway_package_name] + sway_shared_packages + sway_exclusive_packages }}"
+
+- name: adjust global environment
+  lineinfile:
+    path: /etc/environment
+    line: {{ item }}
+    state: absent
+  become: True
+  with_items:
+    - 'QT_QPA_PLATFORM=wayland'
+    - 'QT_WAYLAND_DISABLE_WINDOWDECORATION="1"'

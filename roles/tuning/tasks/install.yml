@@ -14,3 +14,11 @@
     dest: /home/{{ ansible_user_id }}/.bashrc
     line: 'export PS1="\[\e[31m\]x\[\e[m\]:\[\e[34m\]\w\[\e[m\]\[\e[37m\]\\$\[\e[m\] "'
     owner: "{{ ansible_user_id }}"
+    
+- name: add kitty settings
+  lineinfile:
+    path: ~/.config/kitty/kitty.conf
+    line: "{{ item }}"
+  with_items:
+    - background_opacity 0.75
+    - dim_opacity 0.75

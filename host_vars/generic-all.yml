@@ -61,11 +61,11 @@ apt_packages:
   - figlet
   - gnupg
   - htop
+  - kitty
   - lolcat
   - manpages
   - mc
   - packer
-  - terminator
   - traceroute
   - wget
 

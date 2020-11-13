@@ -78,6 +78,7 @@ apt_packages:
   - imagemagick
   - iw
   - keychain
+  - kitty
   - less
   - lolcat
   - lsb-release
@@ -90,7 +91,6 @@ apt_packages:
   - pinentry-tty
   - pwgen
   - socat
-  - terminator
   - tmux
   - traceroute
   - tree

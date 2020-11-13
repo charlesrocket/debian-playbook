@@ -28,7 +28,17 @@
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
     mode: '0755'
-    
+
+- name: adjust global environment
+  lineinfile:
+    path: /etc/environment
+    line: "{{ item }}"
+    state: present
+  become: True
+  with_items:
+    - 'QT_QPA_PLATFORM=wayland'
+    - 'QT_WAYLAND_DISABLE_WINDOWDECORATION="1"'
+
 - name: set theme
   lineinfile:
     path: ~/.config/sway/config
@@ -88,7 +98,7 @@
     path: ~/.config/sway/config
     line: "{{ item }}"
   with_items:
-    - "set $term terminator -b"
+    - "set $term kitty"
     - "default_border none"
     - "default_orientation auto"
     - "gaps inner 6"
