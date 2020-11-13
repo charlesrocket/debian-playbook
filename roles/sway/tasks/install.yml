@@ -28,6 +28,14 @@
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
     mode: '0755'
+    
+- name: copy sway-bar script
+  copy:
+    src: swaybar.sh
+    dest: ~/.config/sway/swaybar.sh
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    mode: '0755'
 
 - name: adjust global environment
   lineinfile:
@@ -92,6 +100,12 @@
   lineinfile:
     path: ~/.config/sway/config
     line: gaps inner 6
+    
+- name: setup sway-bar
+  replace:
+    path: ~/.config/sway/config
+    regexp: '    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done'
+    replace: '    status_command while ~/.config/sway/swaybar.sh; do sleep 1; done'
     
 - name: set layout
   lineinfile:
