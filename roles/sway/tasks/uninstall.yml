@@ -10,7 +10,7 @@
 - name: adjust global environment
   lineinfile:
     path: /etc/environment
-    line: {{ item }}
+    line: "{{ item }}"
     state: absent
   become: True
   with_items:
