@@ -104,8 +104,8 @@
 - name: tune sway-bar
   replace:
     path: ~/.config/sway/config
-    regexp: '    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done'
-    replace: '    status_command while ~/.config/sway/swaybar.sh; do sleep 1; done'
+    regexp: "    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done"
+    replace: "    status_command while ~/.config/sway/swaybar.sh; do sleep 1; done"
     
 - name: set layout
   lineinfile:
