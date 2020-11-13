@@ -30,5 +30,7 @@
     line: "{{ item }}"
     state: present
   with_items:
-    - "background_opacity 0.80"
-    - "dim_opacity 0.80"
+    - "background_opacity 0.77"
+    - "dim_opacity 0.77"
+    - "window_margin_width 7"
+    - "adjust_line_height 3"
