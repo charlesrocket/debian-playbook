@@ -69,6 +69,7 @@ apt_packages:
   - curl
   - direnv
   - dnsutils
+  - dolphin
   - figlet
   - gnupg
   - gnupg-agent
@@ -90,7 +91,6 @@ apt_packages:
   - qt5ct
   - socat
   - terminator
-  - thunar
   - tmux
   - traceroute
   - tree
@@ -239,7 +239,7 @@ fzf_key_bindings: False
 ### Set your preferred default applications
 ###
 xdg_mime_defaults:
-  - desktop_file: thunar.desktop
+  - desktop_file: dolphin.desktop
     mime_types:
       - inode/directory
   - desktop_file: firefox.desktop
