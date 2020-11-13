@@ -26,4 +26,5 @@ sway_shared_packages:
   - libwlroots5
   - lxappearance
   - qt5ct
+  - upower
   - xwayland
