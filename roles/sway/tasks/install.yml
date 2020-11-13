@@ -101,7 +101,7 @@
     path: ~/.config/sway/config
     line: gaps inner 6
     
-- name: setup sway-bar
+- name: tune sway-bar
   replace:
     path: ~/.config/sway/config
     regexp: '    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done'
