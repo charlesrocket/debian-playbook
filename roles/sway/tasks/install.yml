@@ -70,6 +70,26 @@
     - "client.unfocused        #333333aa #333333aa #b3b3b3 #ebba89 #5f445f"
     - "client.urgent           #8d7c7caa #be6060aa #fafafa #900000 #be6060"
     - "client.placeholder      #000000   #0c0c0c   #fafafa #000000 #0c0c0c"
+    
+- name: tune sway-bar
+  blockinfile:
+    path: ~/.config/sway/config
+    marker: "{mark}"
+    marker_begin: "# Read `man 5 sway-bar` for more information about this section."
+    marker_end: "    }"
+    block: |
+      bar {
+          position top
+      
+          # When the status_command prints a new line to stdout, swaybar updates.
+          # The default just shows the current date and time.
+          status_command while ~/.config/sway/swaybar.sh; do sleep 1; done
+
+          colors {
+              statusline #ffffff
+              background #000000AA
+              focused_workspace #cc0000aa #cc0000aa #fafafa
+              inactive_workspace #2B2B2BAA #2B2B2BAA #e3e3e3
 
 - name: set wallpaper
   lineinfile:
@@ -101,18 +121,3 @@
     path: ~/.config/sway/config
     line: gaps inner 6
     
-- name: tune sway-bar
-  replace:
-    path: ~/.config/sway/config
-    regexp: "    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done"
-    replace: "    status_command while ~/.config/sway/swaybar.sh; do sleep 1; done"
-    
-- name: set layout
-  lineinfile:
-    path: ~/.config/sway/config
-    line: "{{ item }}"
-  with_items:
-    - "set $term kitty"
-    - "default_border none"
-    - "default_orientation auto"
-    - "gaps inner 6"
