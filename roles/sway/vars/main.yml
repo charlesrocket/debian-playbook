@@ -25,4 +25,5 @@ sway_shared_packages:
   - libwayland-egl1
   - libwlroots5
   - lxappearance
+  - qt5ct
   - xwayland
