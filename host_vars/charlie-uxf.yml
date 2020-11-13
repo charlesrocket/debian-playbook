@@ -66,10 +66,10 @@ pip3_packages: []
 ###
 apt_packages:
 # ---- Base Utils ----
+  - caja
   - curl
   - direnv
   - dnsutils
-  - dolphin
   - figlet
   - gnupg
   - gnupg-agent
@@ -238,7 +238,7 @@ fzf_key_bindings: False
 ### Set your preferred default applications
 ###
 xdg_mime_defaults:
-  - desktop_file: dolphin.desktop
+  - desktop_file: caja.desktop
     mime_types:
       - inode/directory
   - desktop_file: firefox.desktop
