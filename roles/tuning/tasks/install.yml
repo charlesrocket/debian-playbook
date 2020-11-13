@@ -30,5 +30,5 @@
     line: "{{ item }}"
     state: present
   with_items:
-    - background_opacity 0.75
-    - dim_opacity 0.75
+    - "background_opacity 0.80"
+    - "dim_opacity 0.80"
