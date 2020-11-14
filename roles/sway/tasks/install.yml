@@ -122,8 +122,13 @@
     line: "        focused_workspace #cc0000aa #cc0000aa #fafafa"
     insertafter: "        background #000000AA"
     
-- name: set gaps
+- name: set layout
   lineinfile:
     path: ~/.config/sway/config
-    line: gaps inner 6
+    line: "{{ item }}"
+  with_items:
+    - "set $term kitty"
+    - "default_border none"
+    - "default_orientation auto"
+    - "gaps inner 6"
     
