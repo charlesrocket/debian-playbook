@@ -58,7 +58,8 @@ pip2_packages:
   # https://github.com/chrisallenlane/cheat
   - cheat
 
-pip3_packages: []
+pip3_packages:
+  - dnspython
 
 
 ###
