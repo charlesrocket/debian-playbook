@@ -6,7 +6,7 @@ battery_status=$(upower --show-info $(upower --enumerate | grep 'BAT') | egrep "
 battery_charge=$(upower --show-info $(upower --enumerate | grep 'BAT') | egrep "percentage" | awk '{print $2}')
 ##
 network=$(ip route get 1.1.1.1 | grep -Po '(?<=dev\s)\w+' | cut -f1 -d ' ')
-loadavg_5=$(cat /proc/loadavg | awk -F ' ' '{print $2}')
+loadavg_5=$(cat /proc/loadavg | awk -F ' ' '{print $1}')
 ##
 if [ $battery_status = "discharging" ];
 then
