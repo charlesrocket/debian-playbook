@@ -65,11 +65,11 @@
     state: present
     insertbefore: "# Example configuration:"
   with_items:
-    - "client.focused          #e60000aa #e60000aa #fafafa #cf8787 #c18181"
-    - "client.focused_inactive #333333aa #333333aa #fafafa #cf8787 #5f445f"
-    - "client.unfocused        #333333aa #333333aa #b3b3b3 #ebba89 #5f445f"
-    - "client.urgent           #8d7c7caa #be6060aa #fafafa #900000 #be6060"
-    - "client.placeholder      #000000   #0c0c0c   #fafafa #000000 #0c0c0c"
+    - "client.focused          #5e81acaa #5e81acaa #fafafa #cf8787 #5e81acaa"
+    - "client.focused_inactive #4c566aaa #4c566aaa #fafafa #cf8787 #4c566aaa"
+    - "client.unfocused        #4c566aaa #4c566aaa #b3b3b3 #ebbe7a #4c566aaa"
+    - "client.urgent           #8d7c7caa #be6060aa #fafafa #900000 #8d7c7caa"
+    - "client.placeholder      #000000   #0c0c0c   #fafafa #000000 #000000"
     
 - name: tune sway-bar
   blockinfile:
