@@ -86,7 +86,7 @@
 - hosts: all
   roles: [oh-my-zsh]
   tags: oh-my-zsh
-  
+
 - hosts: all
   roles: [sway]
   tags: sway
