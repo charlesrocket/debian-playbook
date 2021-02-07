@@ -142,9 +142,9 @@
     - icons
 
 - hosts: all
-  roles: [theme-arc]
+  roles: [theme_arc]
   tags:
-    - theme-arc
+    - theme_arc
     - theme
     - themes
 
@@ -164,7 +164,7 @@
 ###
 - hosts: all
   roles:
-    - xdg-mime-meta
+    - xdg_mime_meta
   tags:
     - xdg
     - xdg-open
@@ -176,6 +176,6 @@
 ###
 - hosts: all
   roles:
-    - systemd-meta
+    - systemd_meta
   tags:
     - systemd
