@@ -5,7 +5,7 @@
 ###
 - hosts: all
   roles:
-    - apt-repo-meta
+    - apt_repo_meta
   tags:
     - bootstrap-system
     - bootstrap-system-apt-repo
@@ -19,7 +19,7 @@
       - gnupg
       - software-properties-common
   roles:
-    - apt-meta
+    - apt_meta
   tags:
     - bootstrap-system
     - bootstrap-system-apt
@@ -30,7 +30,7 @@
 ###
 - hosts: all
   roles:
-    - python-meta
+    - python_meta
   tags:
     - bootstrap-python
 
@@ -52,16 +52,16 @@
   tags: clipmenu
 
 - hosts: all
-  roles: [diff-highlight]
-  tags: diff-highlight
+  roles: [diff_highlight]
+  tags: diff_highlight
 
 - hosts: all
   roles: [docker]
   tags: docker
 
 - hosts: all
-  roles: [docker-compose]
-  tags: docker-compose
+  roles: [docker_compose]
+  tags: docker_compose
 
 - hosts: all
   roles: [firefox]
@@ -84,8 +84,8 @@
   tags: neovim
 
 - hosts: all
-  roles: [oh-my-zsh]
-  tags: oh-my-zsh
+  roles: [oh_my_zsh]
+  tags: oh_my_zsh
 
 - hosts: all
   roles: [sway]
@@ -104,30 +104,30 @@
 ### Install fonts
 ###
 - hosts: all
-  roles: [font-droid-sans-mono]
+  roles: [font_droid_sans_mono]
   tags:
-    - font-droid-sans-mono
+    - font_droid_sans_mono
     - font
     - fonts
 
 - hosts: all
-  roles: [font-font-awesome]
+  roles: [font_font_awesome]
   tags:
-    - font-font-awesome
+    - font_font_awesome
     - font
     - fonts
 
 - hosts: all
-  roles: [font-san-francisco]
+  roles: [font_san_francisco]
   tags:
-    - font-san-francisco
+    - font_san_francisco
     - font
     - fonts
 
 - hosts: all
-  roles: [font-terminus]
+  roles: [font_terminus]
   tags:
-    - font-terminus
+    - font_terminus
     - font
     - fonts
 
@@ -135,9 +135,9 @@
 ### Install themes/icons
 ###
 - hosts: all
-  roles: [icon-moka]
+  roles: [icon_moka]
   tags:
-    - icon-moka
+    - icon_moka
     - icon
     - icons
 
@@ -154,7 +154,7 @@
 ###
 - hosts: all
   roles:
-    - apt-meta
+    - apt_meta
   tags:
     - apt
 

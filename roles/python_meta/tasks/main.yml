@@ -8,7 +8,7 @@
 
 - name: ensure python3 packages are installed
   include_role:
-    name: apt-meta
+    name: apt_meta
   vars:
     apt_packages: "{{ python_3_required_apt_packages + python3_apt_packages }}"
   when: python_3

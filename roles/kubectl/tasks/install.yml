@@ -2,7 +2,7 @@
 
 - name: ensure kubectl requirements are installed
   include_role:
-    name: apt-meta
+    name: apt_meta
   vars:
     apt_packages: "{{ kubectl_shared_packages }}"
 

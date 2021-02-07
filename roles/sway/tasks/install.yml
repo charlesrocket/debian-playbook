@@ -2,7 +2,7 @@
 
 - name: ensure sway repo is present
   include_role:
-    name: apt-repo-meta
+    name: apt_repo_meta
   vars:
     apt_repo_keys:
       - "{{ sway_apt_key }}"
@@ -11,7 +11,7 @@
 
 - name: ensure sway and its packages are installed
   include_role:
-    name: apt-meta
+    name: apt_meta
   vars:
     apt_packages: "{{ [sway_package_name] + sway_shared_packages + sway_exclusive_packages }}"
 

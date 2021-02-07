@@ -2,6 +2,6 @@
 
 - name: ensure zathura is installed
   include_role:
-    name: apt-meta
+    name: apt_meta
   vars:
     apt_packages: "{{ [zathura_package_name] + zathura_exclusive_packages }}"

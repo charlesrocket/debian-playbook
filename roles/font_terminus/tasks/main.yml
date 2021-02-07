@@ -2,16 +2,16 @@
 
 - name: ensure requirements are installed
   include_role:
-    name: apt-meta
+    name: apt_meta
   vars:
     apt_packages:
       - fontconfig
 
 - include_tasks: install.yml
-  when: font_droid_sans_mono == 'install'
+  when: font_terminus == 'install'
 
 - include_tasks: uninstall.yml
-  when: font_droid_sans_mono == 'remove'
+  when: font_terminus == 'remove'
 
 # Make sure the handler runs now and not at the end of the playbook
 - meta: flush_handlers
