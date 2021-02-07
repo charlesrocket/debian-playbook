@@ -14,7 +14,7 @@
     src: ../files/.zshrc
     dest: /home/{{ ansible_user_id }}/.zshrc
     mode: 0644
-    
+
 - name: change default shell to zsh
   user:
     name: "{{ ansible_user_id }}"

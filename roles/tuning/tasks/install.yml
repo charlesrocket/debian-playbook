@@ -8,7 +8,7 @@
     owner: root
     group: root
   become: True
-    
+
 - name: edit Bash prompt
   lineinfile:
     dest: /home/{{ ansible_user_id }}/.bashrc
