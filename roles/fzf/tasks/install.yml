@@ -21,6 +21,7 @@
     force: True
     update: True
     depth: 1
+    version: master
 
 - name: set fzf install command generate rc
   set_fact:

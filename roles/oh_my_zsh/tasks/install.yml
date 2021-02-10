@@ -7,7 +7,10 @@
     apt_packages: "{{ oh_my_zsh_shared_packages }}"
 
 - name: Clone oh-my-zsh repo
-  git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=/home/{{ ansible_user_id }}/.oh-my-zsh
+  git:
+    repo: 'https://github.com/robbyrussell/oh-my-zsh.git'
+    dest: /home/{{ ansible_user_id }}/.oh-my-zsh
+    version: master
 
 - name: deploy .zshrc
   template:
