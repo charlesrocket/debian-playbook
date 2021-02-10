@@ -4,10 +4,9 @@
   service_facts:
 
 - name: "check if systemd service exists: {{ systemd_item_name }}"
-  shell: "systemctl list-unit-files --type=service | grep '^{{ systemd_item_name }}'"
-  args:
-    executable: /bin/bash
-  check_mode: False
+  fail:
+    msg: "{{ systemd_item_name }}" is not installed
+  when: ansible_facts.services["{{ systemd_item_name }}"] is not defined
   changed_when: False
   failed_when: False
   register: systemd_service_available
