@@ -1,5 +1,8 @@
 ---
 
+- name: pull service facts
+  service_facts:
+
 - name: "check if systemd service exists: {{ systemd_item_name }}"
   shell: "systemctl list-unit-files --type=service | grep '^{{ systemd_item_name }}'"
   args:
