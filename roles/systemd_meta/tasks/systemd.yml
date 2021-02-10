@@ -5,7 +5,7 @@
 
 - name: "check if systemd service exists: {{ systemd_item_name }}"
   fail:
-    msg: "{{ systemd_item_name }}" is not installed
+    msg: "{{ systemd_item_name }} is not installed"
   when: ansible_facts.services["{{ systemd_item_name }}"] is not defined
   changed_when: False
   failed_when: False
