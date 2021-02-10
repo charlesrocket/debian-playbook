@@ -6,10 +6,11 @@
 - name: "check if systemd service exists: {{ systemd_item_name }}"
   fail:
     msg: "{{ systemd_item_name }} is not installed"
-  when: ansible_facts.services["{{ systemd_item_name }}"] is not defined
+  when: ansible_facts.services [item.systemd_item_name] is not defined
   changed_when: False
   failed_when: False
   register: systemd_service_available
+  with_items: "{{ systemd_item_name }}"
 
 - name: "ensure systemd service is managed: {{ systemd_item_name }}"
   systemd:
