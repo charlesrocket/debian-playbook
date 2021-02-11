@@ -8,7 +8,7 @@
     systemd_item_state: started
     systemd_item_enabled: True
     systemd_item_masked: False
-    systemd_item_fail_on_error: True
+  register: systemd_service_deployed
   with_items:
     - "{{ systemd_enabled }}"
 
@@ -21,6 +21,5 @@
     systemd_item_state: stopped
     systemd_item_enabled: False
     systemd_item_masked: True
-    systemd_item_fail_on_error: False
   with_items:
     - "{{ systemd_disabled }}"
