@@ -19,4 +19,4 @@
     enabled: "{{ systemd_item_enabled }}"
     masked: "{{ systemd_item_masked }}"
   become: True
-  when: systemd_service_deployed.rc == 0 or systemd_service_available.rc == 0
+  when: systemd_service_deployed.rc is defined or systemd_service_available.rc is defined
