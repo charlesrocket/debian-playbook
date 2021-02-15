@@ -15,7 +15,7 @@
 
 - name: ensure python3 pip packages are installed
   pip:
-    state: latest
+    state: present
     name: "{{ python_3_required_pip_packages + pip3_packages }}"
     executable: pip3
   become: True
