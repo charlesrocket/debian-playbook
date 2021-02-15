@@ -2,7 +2,7 @@
 
 - name: ensure fzf requirements are installed
   include_role:
-    name: apt-meta
+    name: apt_meta
   vars:
     apt_packages: "{{ fzf_shared_packages }}"
 
@@ -21,6 +21,7 @@
     force: True
     update: True
     depth: 1
+    version: master
 
 - name: set fzf install command generate rc
   set_fact:

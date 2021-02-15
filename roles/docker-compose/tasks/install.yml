@@ -1,7 +1,0 @@
----
-
-- name: ensure docker-compose is installed
-  include_role:
-    name: apt-meta
-  vars:
-    apt_packages: "{{ [docker_compose_package_name] }}"

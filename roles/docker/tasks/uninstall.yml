@@ -2,14 +2,14 @@
 
 - name: ensure docker is removed
   include_role:
-    name: apt-meta
+    name: apt_meta
   vars:
     apt_state: absent
     apt_packages: "{{ [docker_package_name] }}"
 
 - name: ensure docker repo is removed
   include_role:
-    name: apt-repo-meta
+    name: apt_repo_meta
   vars:
     apt_repo_state: absent
     apt_repo_keys:

@@ -1,0 +1,22 @@
+---
+
+- name: ensure python3 is enabled
+  assert:
+    that:
+      - python_3
+    msg: python3 must be enabled
+
+- name: ensure python3 packages are installed
+  include_role:
+    name: apt_meta
+  vars:
+    apt_packages: "{{ python_3_required_apt_packages + python3_apt_packages }}"
+  when: python_3
+
+- name: ensure python3 pip packages are installed
+  pip:
+    state: present
+    name: "{{ python_3_required_pip_packages + pip3_packages }}"
+    executable: pip3
+  become: True
+  when: python_3

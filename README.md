@@ -1,7 +1,8 @@
-[![Build Status](https://travis-ci.com/charlesrocket/debian-playbook.svg?branch=main)](https://travis-ci.com/charlesrocket/debian-playbook)
+![Playbook tests](https://github.com/charlesrocket/debian-playbook/workflows/Playbook%20tests/badge.svg)
+![Ansible lint](https://github.com/charlesrocket/debian-playbook/workflows/ansible%20lint/badge.svg)
 
 🚧
 
 ```bash
 #from /home/$USER
-curl https://raw.githubusercontent.com/charlesrocket/debian-playbook/main/bootstrap | bash
+curl https://raw.githubusercontent.com/charlesrocket/debian-playbook/HEAD/bootstrap | bash

@@ -2,7 +2,7 @@
 
 - name: ensure sway repo is present
   include_role:
-    name: apt-repo-meta
+    name: apt_repo_meta
   vars:
     apt_repo_keys:
       - "{{ sway_apt_key }}"
@@ -11,16 +11,16 @@
 
 - name: ensure sway and its packages are installed
   include_role:
-    name: apt-meta
+    name: apt_meta
   vars:
     apt_packages: "{{ [sway_package_name] + sway_shared_packages + sway_exclusive_packages }}"
-    
+
 - name: ensure config directory exists
   file:
     path: ~/.config/sway
     state: directory
     mode: 0755
-    
+
 - name: copy sway config file
   copy:
     src: /etc/sway/config
@@ -28,7 +28,7 @@
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
     mode: '0755'
-    
+
 - name: copy sway-bar script
   copy:
     src: swaybar.sh
@@ -70,7 +70,7 @@
     - "client.unfocused        #4c566aaa #4c566aaa #b3b3b3 #ebbe7a #4c566aaa"
     - "client.urgent           #8d7c7caa #be6060aa #fafafa #900000 #8d7c7caa"
     - "client.placeholder      #000000   #0c0c0c   #fafafa #000000 #000000"
-    
+
 - name: tune sway-bar
   blockinfile:
     path: ~/.config/sway/config
@@ -80,7 +80,7 @@
     block: |
       bar {
           position top
-      
+
           # When the status_command prints a new line to stdout, swaybar updates.
           # The default just shows the current date and time.
           status_command while ~/.config/sway/swaybar.sh; do sleep 1; done
@@ -103,19 +103,19 @@
     path: ~/.config/sway/config
     regexp: '        background #323232'
     replace: '        background #000000AA'
-    
+
 - name: tune status bar (2/3)
   replace:
     path: ~/.config/sway/config
     regexp: '        inactive_workspace #32323200 #32323200 #5c5c5c'
     replace: '        inactive_workspace #2B2B2BAA #2B2B2BAA #e3e3e3'
-    
+
 - name: tune status bar (2/3)
   lineinfile:
     path: ~/.config/sway/config
     line: "        focused_workspace #cc0000aa #cc0000aa #fafafa"
     insertafter: "        background #000000AA"
-    
+
 - name: set layout
   lineinfile:
     path: ~/.config/sway/config
@@ -125,4 +125,3 @@
     - "default_border none"
     - "default_orientation auto"
     - "gaps inner 6"
-    

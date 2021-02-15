@@ -1,0 +1,21 @@
+---
+
+- name: create kitty.conf
+  file:
+    path: "~/.config/kitty/kitty.conf"
+    state: touch
+    mode: 0755
+  register: kitty_conf
+  when: kitty_conf_dir.changed
+
+- name: populate kitty.conf
+  lineinfile:
+    path: ~/.config/kitty/kitty.conf
+    line: "{{ item }}"
+    state: present
+  when: kitty_conf.changed
+  with_items:
+    - "background_opacity 0.77"
+    - "dim_opacity 0.77"
+    - "window_margin_width 7"
+    - "adjust_line_height 3"
