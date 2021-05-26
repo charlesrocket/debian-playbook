@@ -4,5 +4,4 @@
 🚧
 
 ```bash
-#from /home/$USER
 curl https://raw.githubusercontent.com/charlesrocket/debian-playbook/HEAD/bootstrap | bash
