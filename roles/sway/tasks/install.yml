@@ -98,24 +98,6 @@
     line: 'output * bg ~/pictures/hardcoding/zaki-aby-general-shot.jpg fill'
     state: present
 
-- name: tune status bar (1/3)
-  replace:
-    path: ~/.config/sway/config
-    regexp: '        background #323232'
-    replace: '        background #000000AA'
-
-- name: tune status bar (2/3)
-  replace:
-    path: ~/.config/sway/config
-    regexp: '        inactive_workspace #32323200 #32323200 #5c5c5c'
-    replace: '        inactive_workspace #2B2B2BAA #2B2B2BAA #e3e3e3'
-
-- name: tune status bar (2/3)
-  lineinfile:
-    path: ~/.config/sway/config
-    line: "        focused_workspace #cc0000aa #cc0000aa #fafafa"
-    insertafter: "        background #000000AA"
-
 - name: set layout
   lineinfile:
     path: ~/.config/sway/config
